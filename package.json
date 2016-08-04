@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "Remo Laubacher",
   "homepage": "https://github.com/ortic/ractive-summernote",
+  "main": "dist/ractive-summernote.js",
   "dependencies": {
     "ractive": "^0.7.0"
   },
