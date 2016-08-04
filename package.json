@@ -1,6 +1,6 @@
 {
   "name": "ractive-summernote",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "summernote plugin for Ractive.js",
   "license": "MIT",
   "author": "Remo Laubacher",
