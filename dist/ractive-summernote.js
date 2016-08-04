@@ -28,6 +28,16 @@
     Ractive.components['summernote'] = Ractive.extend({
         template: "<textarea></textarea>",
         isolated: true,
+        data: {
+            airmode: false,
+            width: null,
+            height: null,
+            focus: false,
+            tabSize: 4,
+            styleWithSpan: true,
+            shortcuts: true,
+            direction: null
+        },
         onrender: function () {
             var self = this;
             var textarea = this.find('textarea');
@@ -35,7 +45,18 @@
             var updating = false;
 
             var summernote = $(textarea);
-            summernote.summernote();
+            summernote.summernote(
+                {
+                    airMode: this.get("airmode"),
+                    width: this.get("width"),
+                    height: this.get("height"),
+                    focus: this.get("focus"),
+                    tabSize: this.get("tabsize"),
+                    styleWithSpan: this.get("stylewithspan"),
+                    shortcuts: this.get("shortcuts"),
+                    direction: this.get("direction")
+                }
+            );
 
             summernote.on("summernote.change", function () {
                 if (this.updating) {
@@ -52,7 +73,7 @@
                 }
                 this.updating = true;
                 summernote.summernote('code', val);
-                updating = false;
+                this.updating = false;
             });
 
             this.on('teardown', function () {
